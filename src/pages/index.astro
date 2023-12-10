@@ -1,0 +1,23 @@
+---
+//src/pages/index.astro
+import Hero from './../components/Hero.astro';
+import LastProjects from '../components/LastProjects.astro';
+import Experience from '../components/Experience.astro'
+import Layout from '../layouts/Layout.astro';
+import styles from './../styes/Main.module.css';
+import Footer from '../components/Footer.astro'
+import CallToActions from '../components/CallToActions.astro';
+---
+
+{/* coment */}
+
+<Layout title="Antonio Queb - Dev Full Stack">
+	<main class={styles.main}> 
+		<Hero/>
+		<LastProjects/>
+		<Experience/>
+		<CallToActions/>
+		<Footer/>
+
+	</main>
+</Layout>

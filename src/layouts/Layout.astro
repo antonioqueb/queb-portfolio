@@ -1,0 +1,159 @@
+---
+// Componente Astro con propiedades
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style>
+        /* Estilos globales */
+        :root {
+			
+        }
+        html {
+            font-family: system-ui, sans-serif;
+            color-scheme: dark light;
+            text-wrap: balance;
+            background-color: #00000067;
+
+			
+        }
+        .glass {
+            backdrop-filter: blur(83px);
+            min-width: 100%;
+			min-height: 100vh;
+            z-index: 60;
+        }
+        .container-layout {
+			min-width: 100%;
+
+            position: relative;
+            display: flex;
+			min-height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .moving-balls {
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+        }
+        .ball.large {
+            width: 420px;
+            height: 420px;
+            background-color: rgb(255, 20, 147);
+            box-shadow: 0 0 15px 10px rgb(255, 105, 180);
+            animation: moveBallLarge 70s linear infinite;
+        }
+        .ball.small {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(255, 93, 217);
+            box-shadow: 0 0 15px 10px rgb(255, 155, 230);
+            animation: moveBallSmall 68s linear infinite;
+        }
+		.ball.small-day {
+            width: 180px;
+            height: 180px;
+            background-color: rgb(149, 0, 114);
+            box-shadow: 0 0 15px 10px rgb(230, 92, 195);
+            animation: moveBallSmallDay 58s linear infinite;
+        }
+        .ball.medium {
+            width: 300px;
+            height: 300px;
+            background-color: rgb(255, 0, 255);
+            box-shadow: 0 0 15px 10px rgb(255, 182, 193);
+            animation: moveBallMedium 55s linear infinite;
+        }
+        .ball.extra-large {
+            width: 400px;
+            height: 400px;
+            background-color: rgb(138, 43, 226);
+            box-shadow: 0 0 15px 10px rgb(147, 112, 219);
+            animation: moveBallExtraLarge 65s linear infinite;
+        }
+        .ball.tiny {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 255);
+            box-shadow: 0 0 15px 10px rgb(173, 216, 230);
+            animation: moveBallTiny 45s linear infinite;
+        }
+
+        /* Animaciones */
+        @keyframes moveBallLarge {
+            0%, 100% { top: -50%; left: -50%; }
+            25% { top: 50%; left: 50%; }
+            50% { top: 100%; left: 100%; }
+            75% { top: 50%; left: 50%; }
+        }
+        @keyframes moveBallSmall {
+            0%, 100% { top: 100%; left: 0; }
+            25% { top: 0; left: 100%; }
+            50% { top: -36; left: 50%; }
+            75% { top: 50%; left: -50%; }
+        }
+		@keyframes moveBallSmallDay {
+            0%, 100% { top: 100%; left: 0; }
+            25% { top: 20; left: 90%; }
+            50% { top: -36; left: 50%; }
+            75% { top: 55%; left: -20%; }
+        }
+        @keyframes moveBallMedium {
+            0%, 100% { top: 50%; left: -50%; }
+            25% { top: 100%; left: 100%; }
+            50% { top: 50%; left: 50%; }
+            75% { top: 20; left: 0; }
+        }
+        @keyframes moveBallExtraLarge {
+            0%, 100% { top: 0; left: 50%; }
+            25% { top: 87%; left: 0; }
+            50% { top: 100%; left: 30%; }
+            75% { top: 50%; left: 100%; }
+        }
+        @keyframes moveBallTiny {
+            0%, 100% { top: 25%; left: 75%; }
+            25% { top: 71%; left: 21%; }
+            50% { top: 22%; left: -24%; }
+            75% { top: -26%; left: 73%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-layout">
+        <div class="moving-balls">
+            <div class="ball large"></div>
+            <div class="ball small"></div>
+			<div class="ball small-day"></div>
+            <div class="ball medium"></div>
+            <div class="ball extra-large"></div>
+            <div class="ball tiny"></div>
+        </div>
+        <div class="glass">
+            <slot/>
+        </div>
+    </div>
+</body>
+</html>
+

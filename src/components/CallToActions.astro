@@ -1,0 +1,260 @@
+---
+// src/components/CallToActions.astro
+import { SaveEmail } from '../api/firebaseConfig';
+
+const handleSubmit = async (event) => {
+    event.preventDefault();
+    const emailInput = document.getElementById('email-address') as HTMLInputElement;
+    if (emailInput) {
+        const email = emailInput.value;
+        try {
+            await SaveEmail(email);
+            console.log('Email saved successfully');
+            // Aquí puedes agregar cualquier lógica adicional, como mostrar un mensaje de éxito
+        } catch (error) {
+            console.error('Error saving email:', error);
+            // Manejar errores, por ejemplo, mostrando un mensaje de error
+        }
+    }
+}
+---
+
+<main> 
+    <section class="section">
+        <div class="content-container">
+            <div class="content-box">
+                <div class="text-section">
+                    <h2 class="nombre">Convierte Visitantes en Clientes</h2>
+                    <p><strong>🔍 Análisis Completo:</strong> Revisión detallada de tu sitio.</p>
+                    <p><strong>🚀 Mejoras Instantáneas:</strong> Identificación de oportunidades.</p>
+                    <p><strong>📊 Reportes Claros:</strong> Informes prácticos y accionables.</p>
+                </div>
+                <div class="form-section">
+                    <form class="subscription-form" onsubmit="{handleSubmit}">
+                        <input id="email-address" name="email-address" placeholder="tuemail@gmail.com" type="email" required>
+                        <button class='button-hero' type="submit">Solicitar Auditoría</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+
+
+    </script>
+    
+
+    
+
+<style>
+.content-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo ligeramente transparente */
+    border: #ffeaf636 solid 3px; /* Borde sólido con color de branding */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque para el fondo */
+}
+
+.text-section h2 {
+    color: #ffffff; /* Texto blanco */
+    background: -webkit-linear-gradient(#ff0090, rgb(255, 182, 193)); /* Gradiente para el título */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-section p {
+    color: rgb(255, 255, 255); /* Texto blanco para una mejor legibilidad */
+    font-size: 1em; /* Ajustar el tamaño de la fuente según sea necesario */
+}
+
+
+.section{
+    margin: 10% 0 10% 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+  .main-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content-container {
+    width: 65%;
+}
+
+.content-box {
+    background-color: #fffdfd2a;
+    border-radius: 24px; /* rounded-3xl */
+    padding: 32px; /* sm:py-8 sm:px-12 */
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(83px);
+    padding: 3%; /* equivalent to px-6 and py-4 */
+
+
+}
+
+.text-section {
+    flex: 1;
+}
+
+.text-section h2 {
+    font-size: 2em; /* text-2xl */
+    font-weight: bold; /* font-bold */
+    color: #ffffff; /* text-slate-900 */
+}
+
+.text-section p {
+    margin-top: 3px; /* mt-4 */
+    color: #ffffff; /* text-slate-900 */
+    font-size: 1.1em; /* text-2xl */
+
+}
+
+.small-text {
+    font-size: 14px; /* text-sm */
+    margin-top: 24px; /* mt-6 */
+    margin-bottom: 0; /* mb-0 */
+}
+
+.form-section {
+    margin-top: 48px; /* mt-12 */
+    flex: 1;
+}
+
+.subscription-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription-form input {
+    padding: 12px; /* Espacio interno para comodidad visual */
+    background-color: #FFFFFF; /* Fondo blanco para el input */
+    border: 1px solid #D1D5DB; /* Borde ligero para el input */
+    border-radius: 9999px; /* Bordes redondeados */
+    color: #333333; /* Color del texto oscuro para alta visibilidad */
+    font-size: 16px; /* Tamaño de fuente para mejor legibilidad */
+}
+
+/* Puedes agregar estilos para cuando el input está en foco (opcional) */
+.subscription-form input:focus {
+    border-color: #6366F1; /* Cambiar color del borde al enfocar */
+    outline: none; /* Remover el outline por defecto al enfocar */
+}
+
+
+.subscription-form button {
+    padding: 12px; /* py-3 px-5 */
+    margin-top: 12px; /* mt-3 */
+    background-color: #ff0090; /* bg-indigo-500 */
+    font-size: 1.1rem;
+    color: #fff4f4;
+    border: none;
+    border-radius: 9999px; /* rounded-full */
+    cursor: pointer;
+}
+.subscription-form button:hover {
+    background-color: #9a1c63;
+  
+}
+/* Hover and focus styles for button can be added as needed */
+
+/* Estilos para dispositivos móviles (teléfonos) */
+@media only screen and (max-width: 600px) {
+    .content-container {
+        width: 90%; /* Ajustar el ancho para dispositivos móviles */
+    }
+
+    .content-box {
+        flex-direction: column; /* Cambiar la disposición a vertical */
+        padding: 5%; /* Ajustar el padding */
+    }
+
+    .text-section, .form-section {
+        flex: none;
+        width: 100%;
+    }
+
+    .text-section h2 {
+        font-size: 1.5em; /* Reducir el tamaño del título */
+    }
+
+    .text-section p {
+        font-size: 0.9em; /* Reducir el tamaño del texto */
+    }
+
+    .subscription-form input {
+        font-size: 0.9em; /* Ajustar el tamaño de fuente del input */
+    }
+}
+
+/* Estilos para tabletas */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .content-container {
+        width: 80%; /* Ajustar el ancho para tabletas */
+    }
+
+    .content-box {
+        flex-direction: column; /* Cambiar la disposición a vertical */
+        padding: 5%; /* Ajustar el padding */
+    }
+
+    .text-section h2 {
+        font-size: 1.75em; /* Ajustar el tamaño del título */
+    }
+
+    .text-section p {
+        font-size: 1em; /* Ajustar el tamaño del texto */
+    }
+
+    .subscription-form input {
+        font-size: 0.95em; /* Ajustar el tamaño de fuente del input */
+    }
+}
+
+/* Estilos para laptops y desktops */
+@media only screen and (min-width: 1025px) and (max-width: 1440px) {
+    .content-container {
+        width: 70%; /* Ajustar el ancho para laptops y desktops medianos */
+    }
+
+    .text-section h2 {
+        font-size: 2em; /* Ajustar el tamaño del título */
+    }
+
+    .text-section p {
+        font-size: 1.1em; /* Ajustar el tamaño del texto */
+    }
+
+    .subscription-form input {
+        font-size: 1em; /* Ajustar el tamaño de fuente del input */
+    }
+}
+
+/* Estilos para pantallas grandes o TV */
+@media only screen and (min-width: 1441px) {
+    .content-container {
+        width: 60%; /* Ajustar el ancho para pantallas grandes */
+    }
+
+    .text-section h2 {
+        font-size: 2.25em; /* Ajustar el tamaño del título para pantallas grandes */
+    }
+
+    .text-section p {
+        font-size: 1.2em; /* Ajustar el tamaño del texto para pantallas grandes */
+    }
+
+    .subscription-form input {
+        font-size: 1.1em; /* Ajustar el tamaño de fuente del input para pantallas grandes */
+    }
+}
+
+
+</style>
