@@ -16,13 +16,13 @@
             
         </div>
     
-</div>
+    </div>
     <div class="timeline-container">
         <div class="timeline-end-dot"></div> <!-- Esfera en la parte inferior -->
         <div class="timeline-start-dot"></div> <!-- Esfera en la parte superior -->
 
          <!-- Alphaqueb -->
-         <div class="timeline-block timeline-block-eft">
+         <div class="timeline-block timeline-block-left">
             <div class="content">
                 <h4 class="title-tl">Alphaqueb - DevOps</h4>
                 <time>octubre de 2023 -  actualidad, México</time>
@@ -327,25 +327,37 @@ time {
 }
 
 @media (max-width: 375px) {
+
+    
+    .container-portfolio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    
+    }
+
+    .portfolio{
+        width: 100%;
+        height: 30vh;
+        margin: 10px;
+       
+    }
+
     .text-portfolio {
         font-size: 1.2em;
     }
 
     .timeline-container {
         max-width: 100%;
+        flex-direction: column;
     }
 
     .content {
         padding: 15px;
         font-size: 0.9rem;
-        background-color: #f9abd7eb;
-        color: #0b0b0b;
     }
-    time {
-    display: block;
-    color: #460028eb;
-    margin-top: 2px;
-}
+
 
     .timeline-main {
         padding: 30px 0;
@@ -358,6 +370,31 @@ time {
     .title-tl {
         font-size: 1.2em;
     }
+    
+.timeline-block-right {
+    justify-content: center;
+}
+
+.timeline-block-left {
+    justify-content: center;
+}
+
+.timeline-end-dot, .timeline-start-dot {
+    display: none;
+    background-color: transparent;
+
+
+}
+
+.timeline-container::before {
+        display: none; /* Oculta la línea vertical */
+    }
+
+    :root {
+  
+    --color-dot: #ff009000;
+}
+
 }
 
 /* Para pantallas entre 376px y 576px */
@@ -368,29 +405,21 @@ time {
 
     .timeline-container {
         max-width: 95%;
-
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .content {
         font-size: 1rem;
         margin: 2%;
-        background-color: #f9abd7eb;
-        color: #0b0b0b;
     }
-    time {
-    display: block;
-    color: #460028eb;
-    margin-top: 2px;
-}
+
 
     .timeline-main {
         padding: 40px 0;
     }
-    time {
-    display: block;
-    color: #0b0b0b ;
-    margin-top: 2px;
-}
 
     .portfolio {
         height: 9vh;
@@ -399,6 +428,28 @@ time {
     .title-tl {
         font-size: 1em;
     }
+    .timeline-block-right {
+    justify-content: center;
+}
+
+.timeline-block-left {
+    justify-content: center;
+}
+
+.timeline-container::before {
+        display: none; /* Oculta la línea vertical */
+    }
+
+    .timeline-end-dot, .timeline-start-dot {
+        display: none; /* Oculta los puntos esféricos */
+        background-color: transparent;
+    }
+
+    :root {
+  
+  --color-dot: #ff009000;
+}
+
 }
 
 /* Para pantallas pequeñas (entre 577px y 768px) */
@@ -415,12 +466,10 @@ time {
 
     .content {
         font-size: 1rem;
-        background-color: #f9abd7eb;
-        color: #0b0b0b;
+      
     }
     time {
     display: block;
-    color: #460028eb;
     margin-top: 2px;
 }
 
@@ -429,7 +478,6 @@ time {
     }
     time {
     display: block;
-    color: #0b0b0b ;
     margin-top: 2px;
 }
 
