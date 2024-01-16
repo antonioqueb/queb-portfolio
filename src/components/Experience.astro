@@ -8,7 +8,7 @@
   
         <div class="portfolio">
             <div class='text-portfolio'>
-                <h2>Mi trayectoria profesional<span class="nombre">.</span></h2>
+                <h2>Mi trayectoria profesional<span class="dot">.</span></h2>
                 
             </div>
           
@@ -135,7 +135,7 @@
 }
 .text-content{
 color: #fff;
-font-size: 1.1em;
+font-size: 1.3em;
 }
 
 .tech-icons {
@@ -202,7 +202,7 @@ font-size: 1.1em;
     width: 89%;
 }
 
-.nombre {
+.dot {
     background: -webkit-linear-gradient(#ff0090, rgb(255, 182, 193)); /* For Safari 5.1 to 6.0 */
     background: linear-gradient(#ff0090, rgb(255, 182, 193)); /* Standard syntax */
     -webkit-background-clip: text;
@@ -214,7 +214,7 @@ font-size: 1.1em;
 
 .text-portfolio {
     flex: 1;
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: #ffffff;
     transition: color 0.3s ease;
     align-self: start;
@@ -334,18 +334,19 @@ time {
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        padding: 0  0 20px 0
     
     }
 
     .portfolio{
         width: 100%;
         height: 30vh;
-        margin: 10px;
+        margin: 3px;
        
     }
 
     .text-portfolio {
-        font-size: 1.2em;
+        font-size: 1em;
     }
 
     .timeline-container {
@@ -363,12 +364,10 @@ time {
         padding: 30px 0;
     }
 
-    .portfolio {
-        height: 8vh;
-    }
+  
 
     .title-tl {
-        font-size: 1.2em;
+        font-size: 1em;
     }
     
 .timeline-block-right {
@@ -397,72 +396,19 @@ time {
 
 }
 
-/* Para pantallas entre 376px y 576px */
-@media (min-width: 376px) and (max-width: 576px) {
-    .text-portfolio {
-        font-size: 1.3em;
-    }
-
-    .timeline-container {
-        max-width: 95%;
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .content {
-        font-size: 1rem;
-        margin: 2%;
-    }
-
-
-    .timeline-main {
-        padding: 40px 0;
-    }
-
-    .portfolio {
-        height: 9vh;
-    }
-
-    .title-tl {
-        font-size: 1em;
-    }
-    .timeline-block-right {
-    justify-content: center;
-}
-
-.timeline-block-left {
-    justify-content: center;
-}
-
-.timeline-container::before {
-        display: none; /* Oculta la línea vertical */
-    }
-
-    .timeline-end-dot, .timeline-start-dot {
-        display: none; /* Oculta los puntos esféricos */
-        background-color: transparent;
-    }
-
-    :root {
-  
-  --color-dot: #ff009000;
-}
-
-}
-
 /* Para pantallas pequeñas (entre 577px y 768px) */
 @media (min-width: 577px) and (max-width: 768px) {
     
 
+    .timeline-container {
+        max-width: 85%;
+    }
+
+    
     .text-portfolio {
         font-size: 1.3em;
     }
 
-    .timeline-container {
-        max-width: 85%;
-    }
 
     .content {
         font-size: 1rem;
@@ -481,9 +427,7 @@ time {
     margin-top: 2px;
 }
 
-    .portfolio {
-        height: 9vh;
-    }
+   
 
     .title-tl {
         font-size: 0.9em;
